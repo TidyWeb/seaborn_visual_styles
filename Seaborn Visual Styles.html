@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A representative visual atlas of the official Seaborn example gallery, with visible function labels, representative calls and switch maps.">
+<link rel="icon" href="data:,">
+<title>Seaborn visual styles — representative gallery atlas</title>
+<style>
+:root{--paper:#fffaf0;--canvas:#e9f0f2;--ink:#17324d;--muted:#536a78;--blue:#168aad;--cyan:#76c7c0;--gold:#f4a261;--coral:#e76f51;--green:#4f8f6b;--line:#bfd0d7;--code:#102432;--code2:#173444;--shadow:0 18px 48px rgba(23,50,77,.15)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background-color:var(--canvas);background-image:linear-gradient(rgba(23,50,77,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(23,50,77,.045) 1px,transparent 1px);background-size:24px 24px;font-family:'IBM Plex Sans','Segoe UI',sans-serif}a{color:#086b88;text-underline-offset:3px}a:hover{color:var(--coral)}code,.mono{font-family:'IBM Plex Mono','DejaVu Sans Mono',monospace}.shell{width:min(1440px,calc(100vw - 28px));margin:28px auto 64px;display:grid;grid-template-columns:238px minmax(0,1fr);background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow)}.rail{position:sticky;top:0;height:100vh;overflow-y:auto;padding:30px 22px;background:var(--ink);color:#dce9ee}.rail-mark{display:grid;place-items:center;width:54px;height:54px;margin-bottom:18px;border:2px solid var(--cyan);border-radius:50%;font:700 18px 'IBM Plex Mono';color:var(--gold)}.rail h2{margin:0 0 6px;font:700 21px/1.15 'Atkinson Hyperlegible','Segoe UI',sans-serif;color:#fff}.rail-intro{margin:0 0 22px;color:#a8c0ca;font-size:12px;line-height:1.55}.rail-label{margin:20px 0 7px;font:600 10px 'IBM Plex Mono';letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}.rail a{display:flex;gap:9px;padding:8px 0;border-top:1px solid rgba(255,255,255,.08);color:#dce9ee;text-decoration:none;font-size:13px;line-height:1.35}.rail a span{color:#6f9aaa;font:500 10px 'IBM Plex Mono';padding-top:3px}.rail a:hover{color:#fff;transform:translateX(2px)}.legend-key{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:11px;color:#a8c0ca}.swatch{width:10px;height:10px;border-radius:2px;background:var(--blue)}.swatch.gold{background:var(--gold)}.swatch.coral{background:var(--coral)}.swatch.green{background:var(--green)}main{min-width:0;padding:52px 54px 74px}.hero{position:relative;overflow:hidden;min-height:420px;padding:42px;margin-bottom:38px;border:1px solid var(--line);background:#f7fbfa}.hero::after{content:"";position:absolute;width:300px;height:300px;right:-84px;top:-82px;border:44px solid rgba(22,138,173,.14);border-radius:50%}.eyebrow{position:relative;z-index:1;font:700 11px 'IBM Plex Mono';letter-spacing:.13em;text-transform:uppercase;color:var(--coral)}h1{position:relative;z-index:1;max-width:820px;margin:16px 0 18px;font:700 clamp(44px,7vw,78px)/.92 'Atkinson Hyperlegible','Segoe UI',sans-serif;letter-spacing:-.035em}h1 em{color:var(--blue);font-style:normal}.hero-deck{position:relative;z-index:1;max-width:850px;margin:0;font-size:18px;line-height:1.7;color:var(--muted)}.hero-points{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}.hero-points span{padding:8px 11px;border:1px solid var(--line);background:#fff;font:600 12px 'IBM Plex Mono'}.warning{margin:0 0 28px;padding:15px 18px;border-left:5px solid var(--coral);background:#fff0eb;line-height:1.65}.warning strong{color:#9a3628}.objects-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin:0 0 62px}.objects-card{border:1px solid var(--line);background:#fff;padding:22px}.objects-card h2{margin:0 0 10px;font:700 27px/1.05 'Atkinson Hyperlegible','Segoe UI',sans-serif}.objects-card p{margin:0 0 12px;line-height:1.65;color:var(--muted)}.section{margin:0 0 68px;scroll-margin-top:22px}.section-head{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:14px;margin-bottom:20px}.section-num{font:700 12px 'IBM Plex Mono';color:var(--coral)}h2{margin:0;font:700 31px/1.05 'Atkinson Hyperlegible','Segoe UI',sans-serif}.section-line{grid-column:1/-1;height:2px;background:linear-gradient(90deg,var(--blue),var(--gold),transparent)}.lead{max-width:860px;margin:0 0 18px;font-size:17px;line-height:1.75;color:var(--muted)}.switch-heading{display:flex;align-items:baseline;gap:12px;margin:0 0 10px;color:var(--muted);font-size:13px}.switch-heading strong{color:var(--blue);font:700 13px 'IBM Plex Mono';letter-spacing:.06em;text-transform:uppercase}.switch-map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 20px}.switch{min-height:78px;padding:11px 12px;border:1px solid var(--line);background:#f8fbfb}.switch code{display:block;margin-bottom:5px;color:#075f78;font-size:12px;font-weight:600}.switch span{display:block;color:var(--muted);font-size:12px;line-height:1.45}.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px}.card{grid-column:span 6;min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:6px;background:rgba(255,255,255,.72)}.card-head{display:flex;justify-content:space-between;gap:14px;padding:9px 14px;border-bottom:1px solid var(--line);background:#eef5f5;font:600 10px 'IBM Plex Mono';letter-spacing:.08em;text-transform:uppercase}.card-head strong{color:var(--blue)}.card-head span{color:var(--muted);text-align:right}.chart{display:grid;place-items:center;min-height:250px;padding:14px;background:#fff}.chart img{display:block;width:100%;height:auto;max-height:270px;object-fit:contain}.card-body{padding:18px 20px;font-size:15px;line-height:1.65}.card-body h3{margin:9px 0 0;font:700 22px/1.1 'Atkinson Hyperlegible','Segoe UI',sans-serif;color:var(--ink)}.card-purpose{margin:9px 0 15px;color:var(--muted);font-size:13px}.function-badge{display:inline-block;padding:4px 7px;border:1px solid var(--line);background:#edf7f7;color:#075f78;font-size:11px}.code-card{overflow:hidden;border:1px solid #294553;background:var(--code);color:#e9f3f6}.code-label{padding:8px 12px;border-bottom:1px solid #294553;background:var(--code2);color:#8ed9e5;font:600 10px 'IBM Plex Mono';letter-spacing:.08em;text-transform:uppercase}pre{margin:0;padding:15px 17px;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.6 'IBM Plex Mono'}.source-link{display:inline-block;margin-top:16px;font:600 12px 'IBM Plex Mono'}.footer{padding-top:25px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;line-height:1.65}
+@media(max-width:1100px){.shell{grid-template-columns:1fr}.rail{position:static;height:auto}.rail nav,.rail .legend{display:none}main{padding:34px 22px 55px}.hero{padding:30px 24px;min-height:0}.card{grid-column:span 12}.objects-panel{grid-template-columns:1fr}}
+@media(max-width:620px){.hero-points{display:grid;grid-template-columns:1fr 1fr}.hero-points span{min-height:100%}.card-head{align-items:flex-start}.chart{min-height:210px}.switch-map{grid-template-columns:1fr}.switch-heading{display:block}.switch-heading span{display:block;margin-top:5px}}
+@media print{@page{size:A4 landscape;margin:10mm}body{background:#fff}.shell{width:100%;margin:0;display:block;border:0;box-shadow:none}.rail{display:none}main{padding:0}.hero{min-height:0;break-after:auto}.gallery-section{break-before:auto;margin:0 0 10mm}.card{break-inside:avoid;page-break-inside:avoid}.switch-map,.objects-panel{break-inside:avoid;page-break-inside:avoid}a{color:inherit;text-decoration:none}}
+</style>
+<style>
+.panel-kicker{margin:0 0 10px;color:var(--coral);font:700 11px 'IBM Plex Mono';letter-spacing:.1em;text-transform:uppercase}
+.hero-bridge{position:relative;z-index:1;max-width:850px;margin:20px 0 0;padding-top:18px;border-top:1px solid var(--line);font-size:16px;line-height:1.65;color:var(--muted)}
+.family-context{max-width:860px;margin:0 0 20px;padding-bottom:4px;font-size:16px;line-height:1.7;color:var(--muted)}
+.data-vocabulary{margin:0 0 38px;padding:22px;border:2px solid var(--blue);background:#f3fafa}
+.vocabulary-head h2{margin:0 0 12px;font:700 34px/1.05 'Atkinson Hyperlegible','Segoe UI',sans-serif}
+.vocabulary-lead{max-width:900px;margin:0 0 12px;font-size:17px;line-height:1.7;color:var(--muted)}
+.vocab-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin:20px 0 14px}
+.vocab-card{min-height:170px;padding:14px;border:1px solid var(--line);background:#fff}
+.vocab-card strong{display:block;margin-bottom:8px;color:var(--ink);font-size:15px}
+.vocab-card code{display:block;margin-bottom:9px;color:#075f78;font-size:11px;font-weight:600}
+.vocab-card span{display:block;color:var(--muted);font-size:13px;line-height:1.5}
+.vocab-example{padding:18px;border:1px solid var(--line);background:#fff}
+.vocab-example p{margin:0 0 12px;color:var(--muted);font-size:15px;line-height:1.6}
+.purchase-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}
+.purchase-row div{padding:12px;border:1px solid var(--line);background:#f8fbfb}
+.purchase-row code{display:block;margin-bottom:6px;color:#075f78;font-size:11px;font-weight:600}
+.purchase-row span{display:block;color:var(--muted);font-size:12px}
+.vocab-note{margin:14px 0;padding:13px 15px;border-left:4px solid var(--gold);background:#fff8ec;color:var(--muted);font-size:14px;line-height:1.6}
+.route-strip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px;margin:16px 0;padding:13px;border:1px solid var(--line);background:#eef5f5;color:var(--blue);font:600 12px 'IBM Plex Mono';text-align:center}
+.route-strip b{color:var(--gold);font-size:16px}
+.vocab-foot{margin-bottom:0!important}
+.card-head{font-size:13px;letter-spacing:.04em}
+.card-head strong{color:var(--gold);font-size:13px}
+.card-head code{flex:1;color:var(--blue);font-size:13px;text-align:center;white-space:nowrap;text-transform:none}
+.card-head span{color:var(--muted);font-size:13px}
+.switches-panel{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 68px;padding:14px;border:2px solid var(--green);background:#eef7f1}
+.switches-card{min-width:0;padding:22px;border:1px solid var(--line);background:#fff}
+.switches-card h2{margin:0 0 10px;font:700 27px/1.05 'Atkinson Hyperlegible','Segoe UI',sans-serif}
+.switches-card p{margin:0 0 12px;line-height:1.65;color:var(--muted)}
+.method-anatomy{overflow:hidden;margin:16px 0;border:1px solid #294553;background:var(--code);color:#e9f3f6}
+.method-anatomy pre{padding:14px 16px}
+.switch-note{padding:12px 14px;border-left:4px solid var(--green);background:#f2f8f3;color:var(--muted);font-size:13px;line-height:1.55}
+.switches-example .code-card{margin:12px 0}
+.switch-glossary{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.glossary-cell{min-height:105px}
+.glossary-cell strong{display:block;margin-bottom:5px;color:var(--ink);font-size:13px}
+.glossary-cell code{display:block;margin-bottom:5px;color:#075f78;font-size:11px;font-weight:600}
+.glossary-cell span{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+@media(max-width:1100px){.switches-panel{grid-template-columns:1fr}.switch-glossary{grid-template-columns:repeat(2,minmax(0,1fr))}.vocab-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.purchase-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.switch-glossary{grid-template-columns:1fr}.card-head{font-size:12px}.card-head strong,.card-head code,.card-head span{font-size:12px}.data-vocabulary{padding:16px}.vocabulary-head h2{font-size:29px}.vocab-grid,.purchase-row{grid-template-columns:1fr}.route-strip{display:grid;grid-template-columns:1fr;gap:3px}.route-strip b{transform:rotate(90deg)}}
+@media print{
+  .data-vocabulary{break-before:page;padding:12px;margin-bottom:6mm}
+  .vocabulary-head h2{font-size:25px;margin-bottom:7px}
+  .vocabulary-lead{font-size:12px;line-height:1.45;margin-bottom:7px}
+  .vocab-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:10px 0 8px}
+  .vocab-card{min-height:0;padding:9px}
+  .vocab-card strong{font-size:11px;margin-bottom:4px}
+  .vocab-card code{font-size:8px;margin-bottom:5px}
+  .vocab-card span{font-size:9px;line-height:1.3}
+  .vocab-example{padding:10px}
+  .vocab-example p{font-size:11px;line-height:1.35;margin-bottom:7px}
+  .purchase-row{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:8px 0}
+  .purchase-row div{padding:7px}
+  .purchase-row code{font-size:8px;margin-bottom:3px}
+  .purchase-row span{font-size:9px}
+  .vocab-note{margin:8px 0;padding:8px 10px;font-size:10px;line-height:1.35}
+  .route-strip{gap:5px;margin:8px 0;padding:8px;font-size:9px}
+  .route-strip b{font-size:12px}
+  .vocab-foot{font-size:10px!important;line-height:1.35!important}
+  .switches-panel{break-before:page;grid-template-columns:1fr 1fr;padding:8px;margin-bottom:6mm}
+  .switches-card{padding:12px}
+  .switches-card h2{font-size:20px}
+  .switches-card p{font-size:10px;line-height:1.35;margin-bottom:7px}
+  .method-anatomy{margin:8px 0}
+  .method-anatomy pre{padding:8px;font-size:8px}
+  .switch-note{padding:8px 10px;font-size:10px;line-height:1.35}
+  .switches-example .code-card{margin:7px 0}
+  .switches-example pre{padding:8px;font-size:8px;line-height:1.3}
+  .switch-glossary{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .glossary-cell{min-height:0;padding:8px}
+  .glossary-cell strong{font-size:10px}
+  .glossary-cell code{font-size:8px}
+  .glossary-cell span{font-size:9px;line-height:1.3}
+  .gallery-section{break-before:page}
+  .section-head,.lead,.family-context,.switch-heading,.switch-map{break-inside:avoid}
+  .card .chart{min-height:220px;padding:8px}
+  .card .chart img{max-height:235px}
+  .card-body{padding:12px 16px;font-size:12px;line-height:1.45}
+  .card-body h3{font-size:19px}
+  .card-purpose{font-size:11px;margin:6px 0 10px}
+  .function-badge{font-size:10px;padding:3px 5px}
+  .card .code-label{padding:6px 10px;font-size:9px}
+  .card .code-card pre{padding:9px 12px;font-size:9px;line-height:1.4}
+  .card .source-link{margin-top:8px;font-size:10px}
+  .footer{padding-top:10px;font-size:10px;line-height:1.4}
+}
+</style>
+</head>
+<body><article class="shell"><aside class="rail"><div class="rail-mark">sns</div><h2>Seaborn</h2><p class="rail-intro">A representative atlas of the official gallery: visual examples first, then the switches that reshape each family.</p><nav aria-label="Atlas sections"><div class="rail-label">The route</div><a href="#orientation"><span>00</span>How to read this</a><a href="#data-vocabulary"><span>01</span>Data vocabulary</a><a href="#objects"><span>02</span>Objects interface</a><a href="#switches"><span>03</span>Switch glossary</a><a href="#family-1"><span>04</span>Relationships</a><a href="#family-2"><span>05</span>Distributions</a><a href="#family-3"><span>06</span>Categorical comparisons</a><a href="#family-4"><span>07</span>Regression</a><a href="#family-5"><span>08</span>Matrices</a><a href="#family-6"><span>09</span>Grids and composition</a></nav><div class="legend"><div class="rail-label">Card language</div><div class="legend-key"><span class="swatch"></span>Official graphic</div><div class="legend-key"><span class="swatch gold"></span>Representative call</div><div class="legend-key"><span class="swatch coral"></span>Official source</div><div class="legend-key"><span class="swatch green"></span>Switch map</div></div></aside><main>
+<header class="hero" id="orientation"><div class="eyebrow">Visual atlas + working reference</div><h1>Seaborn gives statistics<br><em>a visual vocabulary.</em></h1><p class="hero-deck"><strong>Seaborn is narrower than Matplotlib by design.</strong> It concentrates on high-level statistical graphics: relationships, distributions, categories, regression and structured grids. That narrower range is not a weakness. Each family has many switches for changing the view—<code>kind=</code>, <code>hue=</code>, <code>style=</code>, <code>size=</code>, faceting, palettes, scales and statistical treatments—so the same basic idea can answer many different questions.</p><div class="hero-points"><span>49 official examples</span><span>Representative, not exhaustive</span><span>Visible function labels</span><span>Switches explained</span><span>Objects interface signposted</span></div></header>
+<section class="data-vocabulary" id="data-vocabulary">
+  <div class="vocabulary-head"><div class="panel-kicker">01 · Data vocabulary</div><h2>A visual vocabulary needs a data vocabulary</h2><p class="vocabulary-lead">The word <strong>data</strong> covers several different jobs. A Python <code>dtype</code> tells you how a value is stored; it does not, by itself, tell you what that value means in a chart.</p><p class="vocabulary-lead">A measured amount can be placed on a numeric axis. A category names a group. An ordered category has a sequence without trustworthy numeric gaps. A date carries order and intervals. An identifier names a row or entity, but is not a measurement. Seaborn becomes easier when we ask what role each field plays before deciding how to show it.</p></div>
+  <div class="vocab-grid">
+    <div class="vocab-card"><strong>Measurement</strong><code>price = 9.95</code><span>How much? How far? How many? Differences between values carry meaning, so measurements often belong on an axis or a visual scale.</span></div>
+    <div class="vocab-card"><strong>Category</strong><code>material = "leather"</code><span>Which named group? Categories separate observations; they are not quantities to add or average. They can become colour, style, order or facets.</span></div>
+    <div class="vocab-card"><strong>Ordered category</strong><code>size = "medium"</code><span>The levels have a meaningful order, but the gaps between them are not automatically equal numeric distances.</span></div>
+    <div class="vocab-card"><strong>Time</strong><code>purchased = 12 March</code><span>When did it happen? Time carries sequence and intervals, which makes it useful for ordered displays such as line plots.</span></div>
+    <div class="vocab-card"><strong>Identifier</strong><code>transaction_id = 10482</code><span>Which row or entity is this? An identifier helps us locate something, but usually should not be treated as a measured axis.</span></div>
+  </div>
+  <div class="vocab-example"><div class="panel-kicker">Worked row · one purchase</div><p>One row can contain all of these roles at once. They are all data, but they do different jobs:</p><div class="purchase-row"><div><code>price = 9.95</code><span>measurement</span></div><div><code>item = "gloves"</code><span>category</span></div><div><code>purchased = "Tuesday 12 March"</code><span>time</span></div><div><code>transaction_id = 10482</code><span>identifier</span></div></div><div class="vocab-note"><strong>Keep three questions separate:</strong> how values are stored (<code>dtype</code>), what they mean in the investigation (their role), and how the rows are arranged (one variable, two variables, groups, long form, wide form or a matrix).</div><div class="route-strip"><span>variable roles</span><b>→</b><span>data arrangement</span><b>→</b><span>question</span><b>→</b><span>plotting function</span><b>→</b><span>switches</span></div><p class="vocab-foot">“Are prices spread out?”, “Do materials have different prices?”, “Do price and quantity move together?”, and “Does a fitted trend summarise the pattern?” are different questions about the same general world. That is why a data vocabulary comes before a visual vocabulary.</p></div>
+</section>
+<div class="warning"><strong>How to use this atlas:</strong> each card is a starting point, not a complete recipe. Read the official title, identify the Seaborn function, look at the representative call, then use the switch map for that family to see how the visual can change. The linked official page contains the full example and source code.</div>
+<section class="objects-panel" id="objects"><div class="objects-card"><h2>The extra layer: <code>seaborn.objects</code></h2><p>The familiar function interface starts with a chart function and adds data assignments. The newer objects interface starts with a declarative <code>Plot</code> specification, then composes marks, statistical transformations, positional adjustments, facets and scales.</p><div class="code-card"><div class="code-label">Representative objects call</div><pre><code>import seaborn.objects as so
+
+(
+    so.Plot(data, x="value", y="score", color="group")
+    .add(so.Dots())
+    .add(so.Line(), so.PolyFit())
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/tutorial/objects_interface.html" target="_blank" rel="noopener">Read the official objects tutorial ↗</a></div><div class="objects-card"><h2>Think in layers</h2><p><strong>Plot</strong> maps data. A <strong>Mark</strong> draws it. A <strong>Stat</strong> transforms it. A <strong>Move</strong> adjusts positions. A <strong>Scale</strong> controls how values become visual properties.</p><div class="switch-map"><div class="switch"><code>Plot</code><span>Data mappings and layout.</span></div><div class="switch"><code>Mark</code><span>Dots, lines, bars, areas or text.</span></div><div class="switch"><code>Stat</code><span>Aggregation, histograms, KDE or estimates.</span></div><div class="switch"><code>Move</code><span>Dodge, jitter, stack or shift.</span></div><div class="switch"><code>Scale</code><span>Colour, size, coordinates and transformations.</span></div><div class="switch"><code>facet()</code><span>Small multiples from one specification.</span></div></div></div></section>
+<section class="switches-panel" id="switches">
+  <div class="switches-card switches-story"><div class="panel-kicker">02 · Switch glossary</div><h2>One plotting function, many controlled variations</h2><p>Each card begins with a named <strong>plotting function</strong>: for example, <code>sns.scatterplot()</code>. That is the precise Python term for the callable; we can also use <strong>plotting method</strong> as a friendly shorthand for the major display type.</p><p>The function chooses the kind of display. Its keyword parameters—the switches—tell Seaborn how to map data, separate groups, style the marks, apply statistical treatment and arrange the result.</p><div class="method-anatomy"><div class="code-label">The method / plotting function</div><pre><code>sns.scatterplot(x="carat", y="price", data=diamonds)</code></pre></div><div class="switch-note"><strong>Read every call in two layers:</strong> first identify the plotting function; then read the switches that make this particular version richer or more specific.</div></div>
+  <div class="switches-card switches-example"><div class="panel-kicker">Example 02 · Scatterplot with multiple semantics</div><h2>Start simple, then add meaning</h2><p>A basic scatter plot needs an <code>x</code> value, a <code>y</code> value and the data source. Example 02 then adds switches that make more variables visible.</p><div class="code-card"><div class="code-label">Basic call</div><pre><code>sns.scatterplot(x="carat", y="price", data=diamonds)</code></pre></div><div class="code-card"><div class="code-label">Richer call</div><pre><code>sns.scatterplot(
+    x=&quot;carat&quot;, y=&quot;price&quot;, data=diamonds,
+    hue=&quot;clarity&quot;, size=&quot;depth&quot;,
+    palette=&quot;ch:r=-.2,d=.3_r&quot;,
+    hue_order=clarity_ranking,
+    sizes=(1, 8), linewidth=0,
+)</code></pre></div><p class="switch-note"><code>hue="clarity"</code> separates groups by colour; <code>size="depth"</code> adds another variable through point size; <code>palette</code>, <code>hue_order</code>, <code>sizes</code> and <code>linewidth</code> refine the treatment.</p></div>
+  <div class="switch-glossary"><div class="switch glossary-cell"><strong>Data mappings</strong><code>x= / y= / data=</code><span>Tell the plotting function which columns or values become the horizontal axis, vertical axis and observations.</span></div><div class="switch glossary-cell"><strong>Semantic switches</strong><code>hue= / style= / size=</code><span>Give extra variables a visual job: colour, marker or line style, and point size or line width.</span></div><div class="switch glossary-cell"><strong>Ordering and grouping</strong><code>hue_order= / order= / row= / col=</code><span>Control category order or split the same display into comparable subsets.</span></div><div class="switch glossary-cell"><strong>Appearance</strong><code>palette= / color= / alpha= / linewidth=</code><span>Change the visual treatment without changing the question the display answers.</span></div><div class="switch glossary-cell"><strong>Statistical treatment</strong><code>kind= / bins= / stat= / errorbar=</code><span>Choose the display variant, binning, summary scale or uncertainty treatment where that family supports it.</span></div><div class="switch glossary-cell"><strong>Layout and destination</strong><code>height= / aspect= / ax= / sharex=</code><span>Control figure proportions, the Matplotlib axes that receives the plot, and whether facets share scales.</span></div></div>
+</section>
+<section class="section gallery-section" id="family-1">
+  <div class="section-head"><span class="section-num">04</span><h2>Relationships</h2><div class="section-line"></div></div>
+  <p class="lead">Use these when the question concerns association, continuity or how one variable changes with another.</p>
+  <p class="family-context">These displays are useful when two variables may be associated or when an ordered sequence shows change over time. They are less useful when the main information is simply that observations belong to named groups, with no meaningful relationship between two measured axes.</p>
+  <div class="switch-heading"><strong>Switch map</strong><span>High-value starter switches for this family—not every keyword in the full API.</span></div>
+  <div class="switch-map"><div class="switch"><code>kind=</code><span>relplot can switch between scatter and line.</span></div><div class="switch"><code>hue=</code><span>Map a variable to colour so groups become visible.</span></div><div class="switch"><code>style=</code><span>Map a variable to marker or line style.</span></div><div class="switch"><code>size=</code><span>Map a variable to point size or line width.</span></div><div class="switch"><code>row= / col=</code><span>Facet the same relationship into small multiples.</span></div><div class="switch"><code>col_wrap=</code><span>Wrap many column facets onto multiple rows.</span></div></div>
+  <div class="bento"><article class="card plot-card">
+  <div class="card-head"><strong>02</strong><code>sns.scatterplot()</code><span>scatterplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/different_scatter_variables_thumb.png" alt="Scatterplot with multiple semantics"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.scatterplot()</code></div><h3>Scatterplot with multiple semantics</h3><p class="card-purpose">One point per observation; map more variables to visual semantics.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.scatterplot(x=&quot;carat&quot;, y=&quot;price&quot;,
+                hue=&quot;clarity&quot;, size=&quot;depth&quot;,
+                palette=&quot;ch:r=-.2,d=.3_r&quot;,
+                hue_order=clarity_ranking,
+                sizes=(1, 8), linewidth=0,
+                data=diamonds, ax=ax)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/different_scatter_variables.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>03</strong><code>sns.lineplot()</code><span>lineplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/errorband_lineplots_thumb.png" alt="Timeseries plot with error bands"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.lineplot()</code></div><h3>Timeseries plot with error bands</h3><p class="card-purpose">Connect ordered observations; use grouping and error bands to show continuity.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.lineplot(x=&quot;timepoint&quot;, y=&quot;signal&quot;,
+             hue=&quot;region&quot;, style=&quot;event&quot;,
+             data=fmri)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/errorband_lineplots.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>05</strong><code>sns.relplot()</code><span>relplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/faceted_lineplot_thumb.png" alt="Line plots on multiple facets"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.relplot()</code></div><h3>Line plots on multiple facets</h3><p class="card-purpose">Figure-level relational interface: switch between relational kinds and facet them.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.relplot(
+    data=dots,
+    x=&quot;time&quot;, y=&quot;firing_rate&quot;,
+    hue=&quot;coherence&quot;, size=&quot;choice&quot;, col=&quot;align&quot;,
+    kind=&quot;line&quot;, size_order=[&quot;T1&quot;, &quot;T2&quot;], palette=palette,
+    height=5, aspect=.75, facet_kws=dict(sharex=False),
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/faceted_lineplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>09</strong><code>sns.relplot()</code><span>relplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/heat_scatter_thumb.png" alt="Scatterplot heatmap"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.relplot()</code></div><h3>Scatterplot heatmap</h3><p class="card-purpose">Figure-level relational interface: switch between relational kinds and facet them.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.relplot(
+    data=corr_mat,
+    x=&quot;level_0&quot;, y=&quot;level_1&quot;, hue=&quot;correlation&quot;, size=&quot;correlation&quot;,
+    palette=&quot;vlag&quot;, hue_norm=(-1, 1), edgecolor=&quot;.7&quot;,
+    height=10, sizes=(50, 250), size_norm=(-.2, .8),
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/heat_scatter.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>18</strong><code>sns.scatterplot()</code><span>scatterplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/layered_bivariate_plot_thumb.png" alt="Bivariate plot with multiple elements"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.scatterplot()</code></div><h3>Bivariate plot with multiple elements</h3><p class="card-purpose">One point per observation; map more variables to visual semantics.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.scatterplot(x=x, y=y, s=5, color=&quot;.15&quot;)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/layered_bivariate_plot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>37</strong><code>sns.relplot()</code><span>relplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/scatter_bubbles_thumb.png" alt="Scatterplot with varying point sizes and hues"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.relplot()</code></div><h3>Scatterplot with varying point sizes and hues</h3><p class="card-purpose">Figure-level relational interface: switch between relational kinds and facet them.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.relplot(x=&quot;horsepower&quot;, y=&quot;mpg&quot;, hue=&quot;origin&quot;, size=&quot;weight&quot;,
+            sizes=(40, 400), alpha=.5, palette=&quot;muted&quot;,
+            height=6, data=mpg)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/scatter_bubbles.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>40</strong><code>sns.relplot()</code><span>relplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/scatterplot_sizes_thumb.png" alt="Scatterplot with continuous hues and sizes"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.relplot()</code></div><h3>Scatterplot with continuous hues and sizes</h3><p class="card-purpose">Figure-level relational interface: switch between relational kinds and facet them.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.relplot(
+    data=planets,
+    x=&quot;distance&quot;, y=&quot;orbital_period&quot;,
+    hue=&quot;year&quot;, size=&quot;mass&quot;,
+    palette=cmap, sizes=(10, 200),
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/scatterplot_sizes.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>47</strong><code>sns.relplot()</code><span>relplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/timeseries_facets_thumb.png" alt="Small multiple time series"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.relplot()</code></div><h3>Small multiple time series</h3><p class="card-purpose">Figure-level relational interface: switch between relational kinds and facet them.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.relplot(
+    data=flights,
+    x=&quot;month&quot;, y=&quot;passengers&quot;, col=&quot;year&quot;, hue=&quot;year&quot;,
+    kind=&quot;line&quot;, palette=&quot;crest&quot;, linewidth=4, zorder=5,
+    col_wrap=3, height=2, aspect=1.5, legend=False,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/timeseries_facets.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>48</strong><code>sns.lineplot()</code><span>lineplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/wide_data_lineplot_thumb.png" alt="Lineplot from a wide-form dataset"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.lineplot()</code></div><h3>Lineplot from a wide-form dataset</h3><p class="card-purpose">Connect ordered observations; use grouping and error bands to show continuity.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.lineplot(data=data, palette=&quot;tab10&quot;, linewidth=2.5)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/wide_data_lineplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article></div>
+</section><section class="section gallery-section" id="family-2">
+  <div class="section-head"><span class="section-num">05</span><h2>Distributions</h2><div class="section-line"></div></div>
+  <p class="lead">Use these when the question concerns spread, density, frequency, cumulative position or shape.</p>
+  <p class="family-context">These displays are useful when one measured variable is the subject and you want to see its spread, concentration, skew, unusual values or density—for example, delivery times. They are less useful when the main question is how one variable changes with another.</p>
+  <div class="switch-heading"><strong>Switch map</strong><span>High-value starter switches for this family—not every keyword in the full API.</span></div>
+  <div class="switch-map"><div class="switch"><code>kind=</code><span>displot can switch among histogram, KDE, ECDF and rug views.</span></div><div class="switch"><code>bins=</code><span>Change the number or boundaries of histogram intervals.</span></div><div class="switch"><code>stat=</code><span>Choose counts, probability, density or percent-style summaries.</span></div><div class="switch"><code>multiple=</code><span>Layer, stack, fill or dodge distributions for comparison.</span></div><div class="switch"><code>element=</code><span>Use bars, steps or polygons for histogram construction.</span></div><div class="switch"><code>common_norm=</code><span>Decide whether group densities share a normalisation.</span></div></div>
+  <div class="bento"><article class="card plot-card">
+  <div class="card-head"><strong>04</strong><code>sns.displot()</code><span>displot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/faceted_histogram_thumb.png" alt="Facetting histograms by subsets of data"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.displot()</code></div><h3>Facetting histograms by subsets of data</h3><p class="card-purpose">Figure-level distribution interface: switch among histogram, KDE, ECDF and rug views.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.displot(
+    df, x=&quot;flipper_length_mm&quot;, col=&quot;species&quot;, row=&quot;sex&quot;,
+    binwidth=3, height=3, facet_kws=dict(margin_titles=True),
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/faceted_histogram.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>11</strong><code>sns.histplot()</code><span>histplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/histogram_stacked_thumb.png" alt="Stacked histogram on a log scale"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.histplot()</code></div><h3>Stacked histogram on a log scale</h3><p class="card-purpose">Count or normalise observations inside bins; compare groups with hue and elements.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.histplot(
+    diamonds,
+    x=&quot;price&quot;, hue=&quot;cut&quot;,
+    multiple=&quot;stack&quot;,
+    palette=&quot;light:m_r&quot;,
+    edgecolor=&quot;.3&quot;,
+    linewidth=.5,
+    log_scale=True,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/histogram_stacked.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>17</strong><code>sns.boxenplot()</code><span>boxenplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/large_distributions_thumb.png" alt="Plotting large distributions"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.boxenplot()</code></div><h3>Plotting large distributions</h3><p class="card-purpose">Show distribution summaries for larger datasets with more quantile detail.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.boxenplot(
+    diamonds, x=&quot;clarity&quot;, y=&quot;carat&quot;,
+    color=&quot;b&quot;, order=clarity_ranking, width_method=&quot;linear&quot;,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/large_distributions.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>23</strong><code>sns.kdeplot()</code><span>kdeplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/multiple_bivariate_kde_thumb.png" alt="Multiple bivariate KDE plots"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.kdeplot()</code></div><h3>Multiple bivariate KDE plots</h3><p class="card-purpose">Estimate a smooth density and compare distributions through hue or levels.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.kdeplot(
+    data=iris.query(&quot;species != &#x27;versicolor&#x27;&quot;),
+    x=&quot;sepal_width&quot;,
+    y=&quot;sepal_length&quot;,
+    hue=&quot;species&quot;,
+    thresh=.1,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/multiple_bivariate_kde.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>24</strong><code>sns.displot()</code><span>displot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/multiple_conditional_kde_thumb.png" alt="Conditional kernel density estimate"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.displot()</code></div><h3>Conditional kernel density estimate</h3><p class="card-purpose">Figure-level distribution interface: switch among histogram, KDE, ECDF and rug views.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.displot(
+    data=diamonds,
+    x=&quot;carat&quot;, hue=&quot;cut&quot;,
+    kind=&quot;kde&quot;, height=6,
+    multiple=&quot;fill&quot;, clip=(0, None),
+    palette=&quot;ch:rot=-.25,hue=1,light=.75&quot;,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/multiple_conditional_kde.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>25</strong><code>sns.displot()</code><span>displot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/multiple_ecdf_thumb.png" alt="Facetted ECDF plots"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.displot()</code></div><h3>Facetted ECDF plots</h3><p class="card-purpose">Figure-level distribution interface: switch among histogram, KDE, ECDF and rug views.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.displot(
+    mpg,
+    x=&quot;displacement&quot;, col=&quot;origin&quot;, hue=&quot;model_year&quot;,
+    kind=&quot;ecdf&quot;, aspect=.75, linewidth=2, palette=cmap,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/multiple_ecdf.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>31</strong><code>sns.kdeplot()</code><span>kdeplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/palette_generation_thumb.png" alt="Different cubehelix palettes"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.kdeplot()</code></div><h3>Different cubehelix palettes</h3><p class="card-purpose">Estimate a smooth density and compare distributions through hue or levels.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.kdeplot(
+        x=x, y=y,
+        cmap=cmap, fill=True,
+        clip=(-5, 5), cut=10,
+        thresh=0, levels=15,
+        ax=ax,
+    )</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/palette_generation.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>46</strong><code>sns.displot()</code><span>displot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/three_variable_histogram_thumb.png" alt="Trivariate histogram with two categorical variables"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.displot()</code></div><h3>Trivariate histogram with two categorical variables</h3><p class="card-purpose">Figure-level distribution interface: switch among histogram, KDE, ECDF and rug views.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.displot(
+    data=diamonds, x=&quot;price&quot;, y=&quot;color&quot;, col=&quot;clarity&quot;,
+    log_scale=(True, False), col_wrap=4, height=4, aspect=.7,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/three_variable_histogram.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article></div>
+</section><section class="section gallery-section" id="family-3">
+  <div class="section-head"><span class="section-num">06</span><h2>Categorical comparisons</h2><div class="section-line"></div></div>
+  <p class="lead">Use these when observations belong to named groups and the comparison is within or between categories.</p>
+  <p class="family-context">These displays are useful when observations belong to named groups and you want to compare a measured outcome across those groups—for example, glove price by material or delivery time by weekday. They are less useful when the important structure is a relationship between two continuous measurements.</p>
+  <div class="switch-heading"><strong>Switch map</strong><span>High-value starter switches for this family—not every keyword in the full API.</span></div>
+  <div class="switch-map"><div class="switch"><code>kind=</code><span>catplot can switch among strip, swarm, box, violin, boxen, point, bar and count.</span></div><div class="switch"><code>order=</code><span>Control the order in which categories appear.</span></div><div class="switch"><code>hue=</code><span>Add a second categorical grouping through colour.</span></div><div class="switch"><code>dodge=</code><span>Separate or overlap hue groups within each category.</span></div><div class="switch"><code>inner=</code><span>Choose the summary drawn inside a violin plot.</span></div><div class="switch"><code>native_scale=</code><span>Keep numeric or datetime category positions on their original scale.</span></div></div>
+  <div class="bento"><article class="card plot-card">
+  <div class="card-head"><strong>06</strong><code>sns.catplot()</code><span>catplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/grouped_barplot_thumb.png" alt="Grouped barplots"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.catplot()</code></div><h3>Grouped barplots</h3><p class="card-purpose">Figure-level categorical interface with switchable plot kinds and facets.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.catplot(
+    data=penguins, kind=&quot;bar&quot;,
+    x=&quot;species&quot;, y=&quot;body_mass_g&quot;, hue=&quot;sex&quot;,
+    errorbar=&quot;sd&quot;, palette=&quot;dark&quot;, alpha=.6, height=6
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/grouped_barplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>07</strong><code>sns.boxplot()</code><span>boxplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/grouped_boxplot_thumb.png" alt="Grouped boxplots"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.boxplot()</code></div><h3>Grouped boxplots</h3><p class="card-purpose">Compare categorical distributions through quartiles and potential outliers.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.boxplot(x=&quot;day&quot;, y=&quot;total_bill&quot;,
+            hue=&quot;smoker&quot;, palette=[&quot;m&quot;, &quot;g&quot;],
+            data=tips)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/grouped_boxplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>08</strong><code>sns.violinplot()</code><span>violinplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/grouped_violinplots_thumb.png" alt="Grouped violinplots with split violins"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.violinplot()</code></div><h3>Grouped violinplots with split violins</h3><p class="card-purpose">Combine a distribution shape with categorical comparison and inner summaries.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.violinplot(data=tips, x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;smoker&quot;,
+               split=True, inner=&quot;quart&quot;, fill=False,
+               palette={&quot;Yes&quot;: &quot;g&quot;, &quot;No&quot;: &quot;.35&quot;})</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/grouped_violinplots.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>12</strong><code>sns.boxplot()</code><span>boxplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/horizontal_boxplot_thumb.png" alt="Horizontal boxplot with observations"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.boxplot()</code></div><h3>Horizontal boxplot with observations</h3><p class="card-purpose">Compare categorical distributions through quartiles and potential outliers.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.boxplot(
+    planets, x=&quot;distance&quot;, y=&quot;method&quot;, hue=&quot;method&quot;,
+    whis=[0, 100], width=.6, palette=&quot;vlag&quot;
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/horizontal_boxplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>13</strong><code>sns.stripplot()</code><span>stripplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/jitter_stripplot_thumb.png" alt="Conditional means with observations"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.stripplot()</code></div><h3>Conditional means with observations</h3><p class="card-purpose">Show individual observations across categories, with jitter for overlap.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.stripplot(
+    data=iris, x=&quot;value&quot;, y=&quot;measurement&quot;, hue=&quot;species&quot;,
+    dodge=True, alpha=.25, zorder=1, legend=False,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/jitter_stripplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>30</strong><code>sns.barplot()</code><span>barplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/palette_choices_thumb.png" alt="Color palette choices"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.barplot()</code></div><h3>Color palette choices</h3><p class="card-purpose">Estimate a summary for each category and show uncertainty with error bars.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.barplot(x=x, y=y1, hue=x, palette=&quot;rocket&quot;, ax=ax1)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/palette_choices.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>32</strong><code>sns.barplot()</code><span>barplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/part_whole_bars_thumb.png" alt="Horizontal bar plots"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.barplot()</code></div><h3>Horizontal bar plots</h3><p class="card-purpose">Estimate a summary for each category and show uncertainty with error bars.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.barplot(x=&quot;total&quot;, y=&quot;abbrev&quot;, data=crashes,
+            label=&quot;Total&quot;, color=&quot;b&quot;)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/part_whole_bars.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>33</strong><code>sns.catplot()</code><span>catplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/pointplot_anova_thumb.png" alt="Plotting a three-way ANOVA"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.catplot()</code></div><h3>Plotting a three-way ANOVA</h3><p class="card-purpose">Figure-level categorical interface with switchable plot kinds and facets.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.catplot(
+    data=exercise, x=&quot;time&quot;, y=&quot;pulse&quot;, hue=&quot;kind&quot;, col=&quot;diet&quot;,
+    capsize=.2, palette=&quot;YlGnBu_d&quot;, errorbar=&quot;se&quot;,
+    kind=&quot;point&quot;, height=6, aspect=.75,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/pointplot_anova.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>38</strong><code>sns.swarmplot()</code><span>swarmplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/scatterplot_categorical_thumb.png" alt="Scatterplot with categorical variables"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.swarmplot()</code></div><h3>Scatterplot with categorical variables</h3><p class="card-purpose">Show individual observations while arranging points to reduce overlap.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>ax = sns.swarmplot(data=df, x=&quot;body_mass_g&quot;, y=&quot;sex&quot;, hue=&quot;species&quot;)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/scatterplot_categorical.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>41</strong><code>sns.violinplot()</code><span>violinplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/simple_violinplots_thumb.png" alt="Horizontal, unfilled violinplots"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.violinplot()</code></div><h3>Horizontal, unfilled violinplots</h3><p class="card-purpose">Combine a distribution shape with categorical comparison and inner summaries.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.violinplot(seaice, x=&quot;Extent&quot;, y=&quot;Decade&quot;, orient=&quot;y&quot;, fill=False)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/simple_violinplots.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>44</strong><code>sns.catplot()</code><span>catplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/strip_regplot_thumb.png" alt="Regression fit over a strip plot"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.catplot()</code></div><h3>Regression fit over a strip plot</h3><p class="card-purpose">Figure-level categorical interface with switchable plot kinds and facets.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.catplot(
+    data=mpg, x=&quot;cylinders&quot;, y=&quot;acceleration&quot;, hue=&quot;weight&quot;,
+    native_scale=True, zorder=1
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/strip_regplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>49</strong><code>sns.violinplot()</code><span>violinplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/wide_form_violinplot_thumb.png" alt="Violinplot from a wide-form dataset"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.violinplot()</code></div><h3>Violinplot from a wide-form dataset</h3><p class="card-purpose">Combine a distribution shape with categorical comparison and inner summaries.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.violinplot(data=corr_df, bw_adjust=.5, cut=1, linewidth=1, palette=&quot;Set3&quot;)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/wide_form_violinplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article></div>
+</section><section class="section gallery-section" id="family-4">
+  <div class="section-head"><span class="section-num">07</span><h2>Regression</h2><div class="section-line"></div></div>
+  <p class="lead">Use these when a fitted relationship or its residual pattern is part of the question.</p>
+  <p class="family-context">These displays are useful when a fitted relationship can summarise the pattern between variables. A residual is the leftover difference between an observed value and the model’s estimate, so residual views help reveal what the fitted line has not explained. They are less useful as evidence of causation, or when there is no sensible relationship to model.</p>
+  <div class="switch-heading"><strong>Switch map</strong><span>High-value starter switches for this family—not every keyword in the full API.</span></div>
+  <div class="switch-map"><div class="switch"><code>order=</code><span>Fit a polynomial regression of the chosen order.</span></div><div class="switch"><code>hue= / col=</code><span>Fit and compare models across groups or facets.</span></div><div class="switch"><code>logistic=</code><span>Fit a logistic rather than ordinary linear model.</span></div><div class="switch"><code>robust=</code><span>Use a robust fit when outliers may dominate the ordinary fit.</span></div><div class="switch"><code>lowess=</code><span>Use a locally weighted smooth rather than a parametric model.</span></div><div class="switch"><code>errorbar=</code><span>Control the uncertainty band around an estimate or fit.</span></div></div>
+  <div class="bento"><article class="card plot-card">
+  <div class="card-head"><strong>01</strong><code>sns.lmplot()</code><span>lmplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/anscombes_quartet_thumb.png" alt="Anscombe’s quartet"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.lmplot()</code></div><h3>Anscombe’s quartet</h3><p class="card-purpose">Fit a regression model while retaining observations and faceting options.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.lmplot(
+    data=df, x=&quot;x&quot;, y=&quot;y&quot;, col=&quot;dataset&quot;, hue=&quot;dataset&quot;,
+    col_wrap=2, palette=&quot;muted&quot;, ci=None,
+    height=4, scatter_kws={&quot;s&quot;: 50, &quot;alpha&quot;: 1}
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/anscombes_quartet.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>19</strong><code>sns.lmplot()</code><span>lmplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/logistic_regression_thumb.png" alt="Faceted logistic regression"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.lmplot()</code></div><h3>Faceted logistic regression</h3><p class="card-purpose">Fit a regression model while retaining observations and faceting options.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.lmplot(x=&quot;age&quot;, y=&quot;survived&quot;, col=&quot;sex&quot;, hue=&quot;sex&quot;, data=df,
+               palette=pal, y_jitter=.02, logistic=True, truncate=False)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/logistic_regression.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>26</strong><code>sns.lmplot()</code><span>lmplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/multiple_regression_thumb.png" alt="Multiple linear regression"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.lmplot()</code></div><h3>Multiple linear regression</h3><p class="card-purpose">Fit a regression model while retaining observations and faceting options.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.lmplot(
+    data=penguins,
+    x=&quot;bill_length_mm&quot;, y=&quot;bill_depth_mm&quot;, hue=&quot;species&quot;,
+    height=5
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/multiple_regression.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>36</strong><code>sns.residplot()</code><span>residplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/residplot_thumb.png" alt="Plotting model residuals"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.residplot()</code></div><h3>Plotting model residuals</h3><p class="card-purpose">Inspect the pattern left around a fitted relationship.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.residplot(x=x, y=y, lowess=True, color=&quot;g&quot;)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/residplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article></div>
+</section><section class="section gallery-section" id="family-5">
+  <div class="section-head"><span class="section-num">08</span><h2>Matrices</h2><div class="section-line"></div></div>
+  <p class="lead">Use these when values form a rectangular matrix or pairwise structure is best read through colour.</p>
+  <p class="family-context">These displays are useful when values already form a meaningful grid, such as correlations between many numeric variables, and colour or clustering can reveal structure. They are less useful for following individual observations row by row.</p>
+  <div class="switch-heading"><strong>Switch map</strong><span>High-value starter switches for this family—not every keyword in the full API.</span></div>
+  <div class="switch-map"><div class="switch"><code>cmap=</code><span>Choose the colour mapping used to encode matrix values.</span></div><div class="switch"><code>center=</code><span>Set the meaningful midpoint for a diverging scale.</span></div><div class="switch"><code>annot=</code><span>Write values into heatmap cells when numbers matter.</span></div><div class="switch"><code>mask=</code><span>Hide cells that should not be displayed.</span></div><div class="switch"><code>row_colors= / col_colors=</code><span>Add side colour annotations for groups or metadata.</span></div><div class="switch"><code>standard_scale=</code><span>Scale rows or columns before comparison or clustering.</span></div></div>
+  <div class="bento"><article class="card plot-card">
+  <div class="card-head"><strong>21</strong><code>sns.heatmap()</code><span>heatmap</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/many_pairwise_correlations_thumb.png" alt="Plotting a diagonal correlation matrix"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.heatmap()</code></div><h3>Plotting a diagonal correlation matrix</h3><p class="card-purpose">Encode a rectangular matrix as colour, with annotation and masking controls.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
+            square=True, linewidths=.5, cbar_kws={&quot;shrink&quot;: .5})</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/many_pairwise_correlations.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>43</strong><code>sns.heatmap()</code><span>heatmap</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/spreadsheet_heatmap_thumb.png" alt="Annotated heatmaps"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.heatmap()</code></div><h3>Annotated heatmaps</h3><p class="card-purpose">Encode a rectangular matrix as colour, with annotation and masking controls.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.heatmap(flights, annot=True, fmt=&quot;d&quot;, linewidths=.5, ax=ax)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/spreadsheet_heatmap.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>45</strong><code>sns.clustermap()</code><span>clustermap</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/structured_heatmap_thumb.png" alt="Discovering structure in heatmap data"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.clustermap()</code></div><h3>Discovering structure in heatmap data</h3><p class="card-purpose">Combine a heatmap with hierarchical clustering and colour annotations.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.clustermap(df.corr(), center=0, cmap=&quot;vlag&quot;,
+                   row_colors=network_colors, col_colors=network_colors,
+                   dendrogram_ratio=(.1, .2),
+                   cbar_pos=(.02, .32, .03, .2),
+                   linewidths=.75, figsize=(12, 13))</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/structured_heatmap.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article></div>
+</section><section class="section gallery-section" id="family-6">
+  <div class="section-head"><span class="section-num">09</span><h2>Grids and composition</h2><div class="section-line"></div></div>
+  <p class="lead">Use these when related subsets, pairs or marginal views need to be arranged together.</p>
+  <p class="family-context">These displays are useful when the same question needs to be repeated across groups, variables or marginal views, making small multiples or pairwise comparisons easier to scan. They are less useful when many panels would make the overall pattern harder to read.</p>
+  <div class="switch-heading"><strong>Switch map</strong><span>High-value starter switches for this family—not every keyword in the full API.</span></div>
+  <div class="switch-map"><div class="switch"><code>row= / col=</code><span>Create small multiples from subsets of the data.</span></div><div class="switch"><code>map() / map_dataframe()</code><span>Place an axes-level function into each facet.</span></div><div class="switch"><code>kind=</code><span>Convenience functions switch their inner bivariate view.</span></div><div class="switch"><code>diag_kind= / corner=</code><span>Change diagonal plots or reduce a pairwise matrix.</span></div><div class="switch"><code>seaborn.objects</code><span>Use a declarative Plot specification.</span></div><div class="switch"><code>Mark + Stat + Move</code><span>Compose visible marks, transformations and adjustments.</span></div></div>
+  <div class="bento"><article class="card plot-card">
+  <div class="card-head"><strong>10</strong><code>sns.jointplot()</code><span>jointplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/hexbin_marginals_thumb.png" alt="Hexbin plot with marginal distributions"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.jointplot()</code></div><h3>Hexbin plot with marginal distributions</h3><p class="card-purpose">Convenient joint-and-marginal view with a switchable bivariate kind.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.jointplot(x=x, y=y, kind=&quot;hex&quot;, color=&quot;#4CB391&quot;)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/hexbin_marginals.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>14</strong><code>sns.JointGrid()</code><span>JointGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/joint_histogram_thumb.png" alt="Joint and marginal histograms"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.JointGrid()</code></div><h3>Joint and marginal histograms</h3><p class="card-purpose">Combine a bivariate view with marginal views on the same figure.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.JointGrid(data=planets, x=&quot;year&quot;, y=&quot;distance&quot;, marginal_ticks=True)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/joint_histogram.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>15</strong><code>sns.jointplot()</code><span>jointplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/joint_kde_thumb.png" alt="Joint kernel density estimate"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.jointplot()</code></div><h3>Joint kernel density estimate</h3><p class="card-purpose">Convenient joint-and-marginal view with a switchable bivariate kind.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.jointplot(
+    data=penguins,
+    x=&quot;bill_length_mm&quot;, y=&quot;bill_depth_mm&quot;, hue=&quot;species&quot;,
+    kind=&quot;kde&quot;,
+)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/joint_kde.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>16</strong><code>sns.FacetGrid()</code><span>FacetGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/kde_ridgeplot_thumb.png" alt="Overlapping densities (‘ridge plot’)"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.FacetGrid()</code></div><h3>Overlapping densities (‘ridge plot’)</h3><p class="card-purpose">Build a grid of subsets and map a plotting function into each facet.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.FacetGrid(df, row=&quot;g&quot;, hue=&quot;g&quot;, aspect=15, height=.5, palette=pal)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/kde_ridgeplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>20</strong><code>sns.FacetGrid()</code><span>FacetGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/many_facets_thumb.png" alt="Plotting on a large number of facets"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.FacetGrid()</code></div><h3>Plotting on a large number of facets</h3><p class="card-purpose">Build a grid of subsets and map a plotting function into each facet.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>grid = sns.FacetGrid(df, col=&quot;walk&quot;, hue=&quot;walk&quot;, palette=&quot;tab20c&quot;,
+                     col_wrap=4, height=1.5)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/many_facets.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>22</strong><code>sns.JointGrid()</code><span>JointGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/marginal_ticks_thumb.png" alt="Scatterplot with marginal ticks"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.JointGrid()</code></div><h3>Scatterplot with marginal ticks</h3><p class="card-purpose">Combine a bivariate view with marginal views on the same figure.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.JointGrid(data=mpg, x=&quot;mpg&quot;, y=&quot;acceleration&quot;, space=0, ratio=17)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/marginal_ticks.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>27</strong><code>sns.PairGrid()</code><span>PairGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/pair_grid_with_kde_thumb.png" alt="Paired density and scatterplot matrix"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.PairGrid()</code></div><h3>Paired density and scatterplot matrix</h3><p class="card-purpose">Compose different plots on diagonal and off-diagonal pairwise views.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.PairGrid(df, diag_sharey=False)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/pair_grid_with_kde.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>28</strong><code>sns.PairGrid()</code><span>PairGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/paired_pointplots_thumb.png" alt="Paired categorical plots"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.PairGrid()</code></div><h3>Paired categorical plots</h3><p class="card-purpose">Compose different plots on diagonal and off-diagonal pairwise views.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.PairGrid(titanic, y_vars=&quot;survived&quot;,
+                 x_vars=[&quot;class&quot;, &quot;sex&quot;, &quot;who&quot;, &quot;alone&quot;],
+                 height=5, aspect=.5)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/paired_pointplots.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>29</strong><code>sns.PairGrid()</code><span>PairGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/pairgrid_dotplot_thumb.png" alt="Dot plot with several variables"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.PairGrid()</code></div><h3>Dot plot with several variables</h3><p class="card-purpose">Compose different plots on diagonal and off-diagonal pairwise views.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.PairGrid(crashes.sort_values(&quot;total&quot;, ascending=False),
+                 x_vars=crashes.columns[:-3], y_vars=[&quot;abbrev&quot;],
+                 height=10, aspect=.25)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/pairgrid_dotplot.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>34</strong><code>sns.FacetGrid()</code><span>FacetGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/radial_facets_thumb.png" alt="FacetGrid with custom projection"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.FacetGrid()</code></div><h3>FacetGrid with custom projection</h3><p class="card-purpose">Build a grid of subsets and map a plotting function into each facet.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.FacetGrid(df, col=&quot;speed&quot;, hue=&quot;speed&quot;,
+                  subplot_kws=dict(projection=&#x27;polar&#x27;), height=4.5,
+                  sharex=False, sharey=False, despine=False)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/radial_facets.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>35</strong><code>sns.jointplot()</code><span>jointplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/regression_marginals_thumb.png" alt="Linear regression with marginal distributions"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.jointplot()</code></div><h3>Linear regression with marginal distributions</h3><p class="card-purpose">Convenient joint-and-marginal view with a switchable bivariate kind.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.jointplot(x=&quot;total_bill&quot;, y=&quot;tip&quot;, data=tips,
+                  kind=&quot;reg&quot;, truncate=False,
+                  xlim=(0, 60), ylim=(0, 12),
+                  color=&quot;m&quot;, height=7)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/regression_marginals.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>39</strong><code>sns.pairplot()</code><span>pairplot</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/scatterplot_matrix_thumb.png" alt="Scatterplot Matrix"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.pairplot()</code></div><h3>Scatterplot Matrix</h3><p class="card-purpose">Convenient pairwise relationship matrix using common Seaborn defaults.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>sns.pairplot(df, hue=&quot;species&quot;)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/scatterplot_matrix.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article><article class="card plot-card">
+  <div class="card-head"><strong>42</strong><code>sns.JointGrid()</code><span>JointGrid</span></div>
+  <div class="chart"><img src="assets/dataviz-seaborn-visual-styles-20260820/smooth_bivariate_kde_thumb.png" alt="Smooth kernel density with marginal histograms"></div>
+  <div class="card-body"><div class="function-badge"><code>sns.JointGrid()</code></div><h3>Smooth kernel density with marginal histograms</h3><p class="card-purpose">Combine a bivariate view with marginal views on the same figure.</p><div class="code-card"><div class="code-label">Representative call</div><pre><code>g = sns.JointGrid(data=df, x=&quot;body_mass_g&quot;, y=&quot;bill_depth_mm&quot;, space=0)</code></pre></div><a class="source-link" href="https://seaborn.pydata.org/examples/smooth_bivariate_kde.html" target="_blank" rel="noopener">Open official example ↗</a></div>
+</article></div>
+</section>
+<footer class="footer"><strong>Scope note.</strong> This atlas preserves the 49 official Seaborn gallery examples available on the source page at capture time. It is representative rather than comprehensive. The function labels, titles, thumbnails and source links come from the official documentation; the switch maps are high-value starter maps for learners, not complete API parameter lists. Seaborn remains closely integrated with Matplotlib, so many lower-level drawing possibilities sit outside Seaborn’s own high-level gallery.</footer>
+</main></article></body></html>
