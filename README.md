@@ -1,5 +1,8 @@
 # Seaborn Visual Styles
 
+## [🌐 Open the live site: https://tidyweb.github.io/seaborn_visual_styles/ ↗](https://tidyweb.github.io/seaborn_visual_styles/)
+
+
 This is a representative visual atlas of the official [Seaborn example gallery](https://seaborn.pydata.org/examples/index.html). It gives each captured example a permanently visible title, the Seaborn function that calls it, a representative code call, and a short explanation of the switches that can change the display.
 
 The guide is deliberately more than a contact sheet. Its opening data-vocabulary section explains the difference between measurements, categories, ordered categories, time, and identifiers before the gallery is organised into relationships, distributions, categorical comparisons, regression, matrices, grids and composition, and Seaborn objects. Each family also has a switch map: a quick reminder that the method supplies the general display while keyword arguments control its visual semantics.
