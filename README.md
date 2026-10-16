@@ -1,6 +1,6 @@
 # Seaborn Visual Styles
 
-## [🌐 Open the live site: https://tidyweb.github.io/seaborn_visual_styles/ ↗](https://tidyweb.github.io/seaborn_visual_styles/)
+### [Visit the live site ↗](https://tidyweb.github.io/seaborn_visual_styles/)
 
 
 This is a representative visual atlas of the official [Seaborn example gallery](https://seaborn.pydata.org/examples/index.html). It gives each captured example a permanently visible title, the Seaborn function that calls it, a representative code call, and a short explanation of the switches that can change the display.
